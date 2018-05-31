@@ -15,7 +15,6 @@ public class Demo1 {
 		for (String s:list) {
 			System.out.print(s+", ");
 		}
-		
 	}
 	
 	
