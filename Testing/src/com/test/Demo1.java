@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 public class Demo1 {
-
 	public static void main(String[] arg) {
 		System.out.println("==============LIST============");
 		List<String> list = new ArrayList<String>();
