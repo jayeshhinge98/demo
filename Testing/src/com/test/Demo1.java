@@ -43,6 +43,7 @@ public class Demo1 {
 				System.out.println(dup[i] + ": " + count);
 			}
 		}
+		System.out.println("==============Reverse the String=========");
 	}
 
 }
