@@ -43,6 +43,22 @@ public class Demo1 {
 			}
 		}
 		System.out.println("==============Reverse the String=========");
+
+		String original = "Testing";
+		System.out.println("Original String is: " + original);
+		System.out.println("Case 1: Using StringBuffer =========");
+		StringBuffer sb = new StringBuffer(original);
+		System.out.println("Reverse of string is: " + sb.reverse());
+		System.out.println("Case 2: Using CharArray============");
+		char[] arr = original.toCharArray();
+		String reverse = "";
+		for (int i = arr.length - 1; i >= 0; i--) {
+			reverse = reverse + arr[i];
+		}
+		System.out.println("Reverse of string is: " + reverse);
+		System.out.println("==============This is committed by some other developer=========");
+		System.out.println("==============This is commit 1 by me=========");
+
 	}
 
 }
