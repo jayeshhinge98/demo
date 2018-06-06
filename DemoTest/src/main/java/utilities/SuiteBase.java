@@ -36,6 +36,7 @@ public class SuiteBase {
 	@AfterTest(alwaysRun=true)
 	public void cleanUp() {
 		driver.quit();
+		//driver.quit();
 		iOSdriver.quit();
 		
 	}
