@@ -1,12 +1,18 @@
 package com.test;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Demo1 {
-	public static void main(String[] arg) {
+	public static void main(String[] arg) throws IOException {
+		Desktop.getDesktop().open(new File("/Applications/Appium.app"));
+		System.exit(0);
+
 		System.out.println("==============LIST============");
 		List<String> list = new ArrayList<String>();
 		list.add("test1");
