@@ -37,6 +37,8 @@ public class SuiteBase {
 	public void cleanUp() {
 		driver.quit();
 		iOSdriver.quit();
+//		iOSdriver.quit();
+		
 		
 	}
 	
