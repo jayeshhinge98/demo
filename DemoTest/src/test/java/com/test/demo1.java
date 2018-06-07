@@ -10,6 +10,7 @@ public class demo1 extends TestUtitlies {
 		//randomString(5);
 		System.out.println("Random=>"+randomAlphabetic(20));
 		System.out.println("Random=>"+randomNumeric(20));
+		//git change 1
 
 	}
 }
