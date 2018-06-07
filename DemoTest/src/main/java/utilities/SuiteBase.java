@@ -39,7 +39,6 @@ public class SuiteBase {
 		//driver.quit();
 		iOSdriver.quit();
 //		iOSdriver.quit();	
-//		testing
 	}
 	
 }
