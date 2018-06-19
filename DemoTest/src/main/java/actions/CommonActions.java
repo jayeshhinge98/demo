@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 public class CommonActions {
@@ -33,6 +34,32 @@ public class CommonActions {
 			return true;
 		} else {
 			return false;
+		}
+	}
+
+	public void clickOnElementByMouseHover(WebDriver driver, By by) {
+		if (isElementPresent(driver, by)) {
+			new Actions(driver).moveToElement(driver.findElement(by)).click().build().perform();
+			System.out.println("Element " + by.toString() + " clicked by mouse hover.");
+			// logger.log(LogStatus.INFO,"Element "+by.toString()+" clicked.");
+
+		} else {
+			System.out.println("Element " + by.toString() + " not present.");
+			// logger.log(LogStatus.FAIL,"Element "+by.toString()+" not present.");
+			Assert.fail("Element " + by.toString() + " not present.");
+		}
+	}
+	
+	public void mouseHoverOnElement(WebDriver driver, By by) {
+		if (isElementPresent(driver, by)) {
+			new Actions(driver).moveToElement(driver.findElement(by)).build().perform();
+			//System.out.println("Element " + by.toString() + " clicked by mouse hover.");
+			// logger.log(LogStatus.INFO,"Element "+by.toString()+" clicked.");
+
+		} else {
+			System.out.println("Element " + by.toString() + " not present.");
+			// logger.log(LogStatus.FAIL,"Element "+by.toString()+" not present.");
+			Assert.fail("Element " + by.toString() + " not present.");
 		}
 	}
 
@@ -75,5 +102,5 @@ public class CommonActions {
 			Assert.fail("Textfield " + by.toString() + " not present.");
 		}
 	}
-	
+
 }
