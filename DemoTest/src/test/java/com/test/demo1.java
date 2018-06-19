@@ -2,13 +2,17 @@ package com.test;
 
 import java.awt.AWTException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Iterator;
+import java.util.Properties;
 import java.util.Scanner;
 import java.util.Set;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
@@ -82,6 +86,12 @@ public class demo1 extends SuiteBase {
 				chdriver.switchTo().defaultContent();
 				chdriver.findElement(By.name("password")).click();
 				chdriver.findElement(By.name("password")).sendKeys(Keys.ENTER);
+				if (chdriver.getTitle().equals("CRMPRO")) {
+					System.out.println("Agent logged into application successfully.");
+				} else {
+					System.out.println("Agent login failed.");
+					Assert.fail("Agent login failed.");
+				}
 				// Robot rb = new Robot();
 				// rb.keyPress(KeyEvent.VK_ENTER);
 				// js.executeScript("arguments[0].click()",
@@ -109,39 +119,62 @@ public class demo1 extends SuiteBase {
 			}
 			chdriver.switchTo().window(childWindow);
 			File file = new File("src/main/resources/textfile.txt");
+			Properties properties = new Properties();
+			InputStream inStream1 = new FileInputStream("src/main/resources/property.properties");
 			OutputStream outStream = new FileOutputStream("src/main/resources/textfile.txt");
 			String actualString = chdriver.findElement(By.xpath("//tr[2]/td[1]")).getText();
 			outStream.write(actualString.getBytes());
 			Scanner inStream = new Scanner(file);
-			System.out.println("File contents are: ");
-			while (inStream.hasNext()) {
-				System.out.print(inStream.next() + " ");
-			}
-			// System.out.println("Contents on pop-up are: " + actualString);
+			// System.out.println("File contents are: ");
+			// while (inStream.hasNext()) {
+			// System.out.print(inStream.next() + " ");
+			// }
+			System.out.println("Contents on pop-up are: " + actualString);
+			Assert.assertEquals(actualString,
+					"The \"Default Company\" button is a feature that works when you are viewing a Company record. By clicking this link, you are telling the system that you would like all views to default to this company, which can filter out information and only show information having to do with this particular record.\nIf you have a default company selected, the name of the company will show up on this button, and any subsequent records created will be made with this company information. Click this button from any screen to return to the default company record view. Click out of the company tab to clear this feature and default to viewing all information with no default company selected.","Pop-up text doesn't match");
+			System.out.println("PASS: Contents from pop-up are matching properly.");
 			chdriver.close();
 			inStream.close();
+			inStream1.close();
 			outStream.close();
 			chdriver.switchTo().window(parentWindow);
+
 		}
 	}
 
 	@Test(priority = 3)
-	public void createContact() {
+	public void openPageTocreateContact() {
 		chdriver.switchTo().frame("mainpanel");
 		// ca.clickOnElement(chdriver, By.xpath("//a[@title='Contacts']"));
 		ca.mouseHoverOnElement(chdriver, By.xpath("//a[@title='Contacts']"));
 		ca.clickOnElement(chdriver, By.xpath("//a[@title='New Contact']"));
-		if(ca.isElementPresent(chdriver, By.xpath("//legend[contains(text(),'Contact Information')]"))) {
+		if (ca.isElementPresent(chdriver, By.xpath("//legend[contains(text(),'Contact Information')]"))) {
 			System.out.println("Create Contact page opened successfully.");
-		}else {
+		} else {
 			System.out.println("Unable to open Create Contact page.");
 			Assert.fail("Unable to open Create Contact page.");
 		}
-		
+	}
+
+	@Test(priority = 4)
+	public void verifySaveButtonWithoutEnteringContactDetails() {
+		// openPageTocreateContact();
+		ca.clickOnElement(chdriver, By.xpath("//form/table/tbody/tr/td/input[@type='submit'][1]"));
+		if (isAlertPresent()) {
+			Alert alert = chdriver.switchTo().alert();
+			String alertText = alert.getText();
+			System.out.println("Alert Text is: " + alertText);
+			Assert.assertEquals(alertText, "Please enter a first name\nPlease enter a surname\n",
+					"Alert text doesn't matches");
+			alert.accept();
+		} else {
+			System.out.println("Alert is not present.");
+		}
 
 	}
 
-	@Test(priority = 4, enabled = false)
+
+	@Test(priority = 20, enabled = false)
 	public void logout() {
 
 		chdriver.switchTo().frame("mainpanel");
@@ -150,6 +183,17 @@ public class demo1 extends SuiteBase {
 				"CRMPRO - CRM software for customer relationship management, sales, and support.",
 				"Agent not able to logout from application.");
 		System.out.println("Agent logout from application successfully");
+	}
+	
+
+	boolean isAlertPresent() {
+		try {
+			chdriver.switchTo().alert();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+
 	}
 
 }
