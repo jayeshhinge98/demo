@@ -1,6 +1,6 @@
 package com.test;
 
-import java.awt.AWTException;
+//import java.awt.AWTException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,6 +14,7 @@ import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -37,11 +38,16 @@ public class demo1 extends SuiteBase {
 		// System.out.println("Browser loaded, title is:=>"+hldriver.getTitle());
 		// Assert.assertEquals(hldriver.getTitle(), "selenium - Google Search","Title
 		// doesn't match");
+		for(2,9) {
+			
+		}
 
 	}
+	
+	
 
 	@Test(priority = 1)
-	public void loginCRM() throws AWTException {
+	public void loginCRM()  {
 		System.out.println("Title is=>" + chdriver.getTitle());
 		Assert.assertEquals(chdriver.getTitle(),
 				"CRMPRO - CRM software for customer relationship management, sales, and support."
@@ -96,6 +102,12 @@ public class demo1 extends SuiteBase {
 				// rb.keyPress(KeyEvent.VK_ENTER);
 				// js.executeScript("arguments[0].click()",
 				// chdriver.findElement(By.xpath("//input[@type='submit']/parent::div")));
+			}
+		}
+		
+		for (int i = 0; i < array.length; i++) {
+			for (int j = 0; j < array.length; j++) {
+				function();
 			}
 		}
 

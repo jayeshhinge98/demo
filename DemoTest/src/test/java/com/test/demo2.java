@@ -26,22 +26,34 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class demo2 {
 
 	public static void main(String[] args) throws IOException, Exception {
-		Workbook wb = new XSSFWorkbook(new FileInputStream(
-				new File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx")));
+//		Workbook wb = new XSSFWorkbook(new FileInputStream(
+//				new File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx")));
+//		
+//		File excelFile = new File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx");
+//		InputStream inp = new FileInputStream(excelFile);
+//		Workbook wb1= WorkbookFactory.create(inp);
+//		FileOutputStream fos = new FileOutputStream(excelFile);
+//		//Workbook wb1 = WorkbookFactory
+//		//		.create(new File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx"));
+//		// Workbook wb1 = new XSSFWorkbook();
+//		// new FileOutputStream(new
+//		// File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx"))
+//
+//		readExcelDetails(wb);
+//		writeToExcelFile(wb1,fos);
+
+		File file = new File("/Users/jayesh.hinge/eclipse-workspace/KeywordDriven/src/main/java/dataEngine/DataEngine.xlsx ");
+		Workbook wb = new XSSFWorkbook(file);
+		Sheet sheet = wb.getSheet("DataEngine");
+		int numberOfRows = sheet.getLastRowNum();
+		int numberofCells = sheet.getRow(0).getPhysicalNumberOfCells();
+		for (int i = 0; i < numberOfRows ; i++) {
+			for (int j = 0; j < numberofCells; j++) {
+				System.out.print(sheet.getRow(i).getCell(j) + "\t");
+			}
+			System.out.println("");
+		}
 		
-		File excelFile = new File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx");
-		InputStream inp = new FileInputStream(excelFile);
-		Workbook wb1= WorkbookFactory.create(inp);
-		FileOutputStream fos = new FileOutputStream(excelFile);
-		//Workbook wb1 = WorkbookFactory
-		//		.create(new File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx"));
-		// Workbook wb1 = new XSSFWorkbook();
-		// new FileOutputStream(new
-		// File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx"))
-
-		readExcelDetails(wb);
-		writeToExcelFile(wb1,fos);
-
 	}
 
 	public static void writeToExcelFile(Workbook wb, FileOutputStream fos) throws FileNotFoundException {
