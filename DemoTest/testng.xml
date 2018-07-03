@@ -5,6 +5,7 @@
 		<classes>
 		<!-- 	<class name="utilities.SuiteBase"></class>  -->
 			<class name="com.test.demo1" />
+			
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

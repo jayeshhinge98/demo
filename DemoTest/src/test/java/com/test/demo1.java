@@ -38,16 +38,10 @@ public class demo1 extends SuiteBase {
 		// System.out.println("Browser loaded, title is:=>"+hldriver.getTitle());
 		// Assert.assertEquals(hldriver.getTitle(), "selenium - Google Search","Title
 		// doesn't match");
-		for(2,9) {
-			
-		}
-
 	}
-	
-	
 
-	@Test(priority = 1)
-	public void loginCRM()  {
+	@Test(priority = 1, alwaysRun=true)
+	public void loginCRM() {
 		System.out.println("Title is=>" + chdriver.getTitle());
 		Assert.assertEquals(chdriver.getTitle(),
 				"CRMPRO - CRM software for customer relationship management, sales, and support."
@@ -104,12 +98,12 @@ public class demo1 extends SuiteBase {
 				// chdriver.findElement(By.xpath("//input[@type='submit']/parent::div")));
 			}
 		}
-		
-		for (int i = 0; i < array.length; i++) {
-			for (int j = 0; j < array.length; j++) {
-				function();
-			}
-		}
+
+		// for (int i = 0; i < array.length; i++) {
+		// for (int j = 0; j < array.length; j++) {
+		// function();
+		// }
+		// }
 
 	}
 
@@ -143,7 +137,8 @@ public class demo1 extends SuiteBase {
 			// }
 			System.out.println("Contents on pop-up are: " + actualString);
 			Assert.assertEquals(actualString,
-					"The \"Default Company\" button is a feature that works when you are viewing a Company record. By clicking this link, you are telling the system that you would like all views to default to this company, which can filter out information and only show information having to do with this particular record.\nIf you have a default company selected, the name of the company will show up on this button, and any subsequent records created will be made with this company information. Click this button from any screen to return to the default company record view. Click out of the company tab to clear this feature and default to viewing all information with no default company selected.","Pop-up text doesn't match");
+					"The \"Default Company\" button is a feature that works when you are viewing a Company record. By clicking this link, you are telling the system that you would like all views to default to this company, which can filter out information and only show information having to do with this particular record.\nIf you have a default company selected, the name of the company will show up on this button, and any subsequent records created will be made with this company information. Click this button from any screen to return to the default company record view. Click out of the company tab to clear this feature and default to viewing all information with no default company selected.",
+					"Pop-up text doesn't match");
 			System.out.println("PASS: Contents from pop-up are matching properly.");
 			chdriver.close();
 			inStream.close();
@@ -168,7 +163,7 @@ public class demo1 extends SuiteBase {
 		}
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 4, description = "This is description for 5th test")
 	public void verifySaveButtonWithoutEnteringContactDetails() {
 		// openPageTocreateContact();
 		ca.clickOnElement(chdriver, By.xpath("//form/table/tbody/tr/td/input[@type='submit'][1]"));
@@ -185,7 +180,6 @@ public class demo1 extends SuiteBase {
 
 	}
 
-
 	@Test(priority = 20, enabled = false)
 	public void logout() {
 
@@ -196,7 +190,6 @@ public class demo1 extends SuiteBase {
 				"Agent not able to logout from application.");
 		System.out.println("Agent logout from application successfully");
 	}
-	
 
 	boolean isAlertPresent() {
 		try {

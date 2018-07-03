@@ -1,11 +1,8 @@
 package com.test;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -20,41 +17,33 @@ import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class demo2 {
-
+public class demo2 extends Student{
+	//demo2 d=new demo2();
+	int i=0;
+	//Student s=new Student();
 	public static void main(String[] args) throws IOException, Exception {
-//		Workbook wb = new XSSFWorkbook(new FileInputStream(
-//				new File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx")));
-//		
-//		File excelFile = new File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx");
-//		InputStream inp = new FileInputStream(excelFile);
-//		Workbook wb1= WorkbookFactory.create(inp);
-//		FileOutputStream fos = new FileOutputStream(excelFile);
-//		//Workbook wb1 = WorkbookFactory
-//		//		.create(new File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx"));
-//		// Workbook wb1 = new XSSFWorkbook();
-//		// new FileOutputStream(new
-//		// File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx"))
-//
-//		readExcelDetails(wb);
-//		writeToExcelFile(wb1,fos);
-
-		File file = new File("/Users/jayesh.hinge/eclipse-workspace/KeywordDriven/src/main/java/dataEngine/DataEngine.xlsx ");
-		Workbook wb = new XSSFWorkbook(file);
-		Sheet sheet = wb.getSheet("DataEngine");
-		int numberOfRows = sheet.getLastRowNum();
-		int numberofCells = sheet.getRow(0).getPhysicalNumberOfCells();
-		for (int i = 0; i < numberOfRows ; i++) {
-			for (int j = 0; j < numberofCells; j++) {
-				System.out.print(sheet.getRow(i).getCell(j) + "\t");
+		
+		ThisIsAbstractClass ac=new ThisIsAbstractClass() {
+			
+			@Override
+			public void abstract1() {
+				System.out.println("This is Abstract method");
+				
 			}
-			System.out.println("");
-		}
+		};
+		ac.abstract1();
+		ac.print();
+		
 		
 	}
+	public static void test1() {
+		
+	}
+	public void test2() {
+		
+	}
+	
 
 	public static void writeToExcelFile(Workbook wb, FileOutputStream fos) throws FileNotFoundException {
 		System.out.println("Writing details to excel sheet");
@@ -65,22 +54,22 @@ public class demo2 {
 		st.add("Test 3");
 		st.add("Test 2");
 		st.forEach(value -> {
-		//	System.out.println("Value: " + value);
+			// System.out.println("Value: " + value);
 		});
 		Map<Integer, String> map = new HashMap<>();
 		map.put(1, "Sam");
 		map.put(2, "Ram");
 		map.forEach((key, value) -> {
-		//	System.out.println("Key: " + key + "\tValue: " + value);
+			// System.out.println("Key: " + key + "\tValue: " + value);
 		});
 		int count = map.keySet().size();
-		//System.out.println("Map count" + count);
-		//System.out.println("Total: " + (count + st.size()));
+		// System.out.println("Map count" + count);
+		// System.out.println("Total: " + (count + st.size()));
 		for (int i = 0; i < st.size(); i++) {
 			map.put(i + 3, st.get(i));
 		}
 		map.forEach((key, value) -> {
-			//System.out.println("Key: " + key + "\tValue: " + value);
+			// System.out.println("Key: " + key + "\tValue: " + value);
 		});
 		Student s = new Student();
 		Calendar date = Calendar.getInstance();
@@ -96,15 +85,16 @@ public class demo2 {
 		s1.setDateOfBirth(date.getTime());
 		student.add(s1);
 		student.forEach(value -> {
-			//System.out.println(value.getRoll_No() + "\t" + value.getName() + "\t" + value.getDateOfBirth());// student.get(1).Name
+			// System.out.println(value.getRoll_No() + "\t" + value.getName() + "\t" +
+			// value.getDateOfBirth());// student.get(1).Name
 		});
 		Sheet sheet = null;
-		boolean b=false;
+		boolean b = false;
 		for (int i = 0; i < wb.getNumberOfSheets(); i++) {
 			if (wb.getSheetAt(i).getSheetName().equals("Student Data")) {
-				b=true;
+				b = true;
 				break;
-			} 
+			}
 		}
 		if (b) {
 			System.out.println("sheet already exist");
@@ -217,4 +207,36 @@ public class demo2 {
 		System.out.print("\t");
 	}
 
+	// Workbook wb = new XSSFWorkbook(new FileInputStream(
+	// new
+	// File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx")));
+	//
+	// File excelFile = new
+	// File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx");
+	// InputStream inp = new FileInputStream(excelFile);
+	// Workbook wb1= WorkbookFactory.create(inp);
+	// FileOutputStream fos = new FileOutputStream(excelFile);
+	//// Workbook wb1 = WorkbookFactory
+	//// .create(new
+	// File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx"));
+	//// Workbook wb1 = new XSSFWorkbook();
+	//// new FileOutputStream(new
+	//// File("/Users/jayesh.hinge/git/demo/DemoTest/src/test/resources/testexcel.xlsx"))
+	//
+	// readExcelDetails(wb);
+	// writeToExcelFile(wb1,fos);
+
+	// File file = new
+	// File("/Users/jayesh.hinge/eclipse-workspace/KeywordDriven/src/main/java/dataEngine/DataEngine.xlsx");
+	// Workbook wb = new XSSFWorkbook(file);
+	// Sheet sheet = wb.getSheet("DataEngine");
+	// int numberOfRows = sheet.getLastRowNum();
+	// int numberofCells = sheet.getRow(0).getPhysicalNumberOfCells();
+	// for (int i = 1; i < numberOfRows ; i++) {
+	// for (int j = 0; j < numberofCells; j++) {
+	// System.out.print(sheet.getRow(i).getCell(j) + "\t");
+	// }
+	// System.out.println("");
+	// }
+	//
 }
