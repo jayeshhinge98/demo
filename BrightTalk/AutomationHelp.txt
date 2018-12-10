@@ -1,0 +1,27 @@
+Cucumber Installation:
+1. Install Java 
+2. Install Node.js using URL  : https://nodejs.org/en/download/
+
+
+https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/caps.md
+
+SDK path : C:\Users\admin\AppData\Local\Android\Sdk
+
+
+https://dl-ssl.google.com/android/eclipse/
+
+
+http://www.thetestroom.com/cucumber-maven-eclipse-setup-tutorial/
+https://www.tutorialspoint.com/cucumber/cucumber_java_testing.htm
+
+
+for %i in (java.exe) do @echo.   %~$PATH:i
+
+
+C:\ProgramData\Oracle\Java\javapath
+
+
+URL: https://www.brighttalk.com/mybrighttalk/knowledge-feed 
+
+
+

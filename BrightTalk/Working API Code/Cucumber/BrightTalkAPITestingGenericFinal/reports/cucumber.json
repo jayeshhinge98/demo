@@ -1,0 +1,734 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "comments": [
+          {
+            "line": 5,
+            "value": "#update the name"
+          }
+        ],
+        "line": 7,
+        "name": "Create Realm Id",
+        "description": "",
+        "id": "testing-realm-rest-api;create-realm-id",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 927490176,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "a user sends request with payload with name and description",
+            "match": {
+              "location": "TestSteps.a_user_sends_request_with_payload_with_name_and_description(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "createRealmID7",
+                  "description1"
+                ],
+                "line": 9
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 7672796,
+              "error_message": "java.lang.AssertionError: FAIL: Status code doesn\u0027t match.\nActual Response Code is \u003d\u003d\u003e 400\nExpected Response code is \u003d\u003d\u003e 201\nError is \u003d\u003d\u003e DuplicateRealmName\nDescription is \u003d\u003d\u003e Duplicate realm name [createRealmID7].\r\n\tat org.testng.Assert.fail(Assert.java:93)\r\n\tat step_definations.TestSteps.the_status_code_is(TestSteps.java:50)\r\n\tat ✽.Then the status code is \"201\"(src/test/resources/testRealmAPI.feature:10)\r\n",
+              "status": "failed"
+            },
+            "line": 10,
+            "name": "the status code is \"201\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "201",
+                  "offset": 20
+                }
+              ],
+              "location": "TestSteps.the_status_code_is(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 11,
+            "name": "response for request is proper",
+            "match": {
+              "location": "TestSteps.response_for_request_is_proper()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@POST"
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 13,
+            "value": "#If the requested realm name matches the name of an existing realm."
+          }
+        ],
+        "line": 15,
+        "name": "Check Duplicate Realm Name",
+        "description": "",
+        "id": "testing-realm-rest-api;check-duplicate-realm-name",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 456621247,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "a user sends request with payload with samename and description",
+            "match": {
+              "location": "TestSteps.a_user_sends_request_with_payload_with_samename_and_description(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "createRealmID6",
+                  "description1"
+                ],
+                "line": 17
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 141384,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "the status code is \"400\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "400",
+                  "offset": 20
+                }
+              ],
+              "location": "TestSteps.the_status_code_is(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 128118,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "the response for request with duplicate RealmName is proper",
+            "match": {
+              "location": "TestSteps.the_response_for_request_with_duplicate_RealmName_is_proper()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 14,
+            "name": "@POST"
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 21,
+            "value": "#If the mandatory realm name is not supplied or if supplied is blank/empty"
+          }
+        ],
+        "line": 23,
+        "name": "Check Empty Realm Name",
+        "description": "",
+        "id": "testing-realm-rest-api;check-empty-realm-name",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 469111227,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "a user sends request with payload with empty name and description",
+            "match": {
+              "location": "TestSteps.a_user_sends_request_with_payload_with_empty_name_and_description(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "",
+                  "description1"
+                ],
+                "line": 25
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 216090,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "the status code is \"400\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "400",
+                  "offset": 20
+                }
+              ],
+              "location": "TestSteps.the_status_code_is(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 157791,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "the response for request with empty RealmName is proper",
+            "match": {
+              "location": "TestSteps.the_response_for_request_with_empty_RealmName_is_proper()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 22,
+            "name": "@POST"
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 29,
+            "value": "#If the requested realm name is longer than 100 chars."
+          }
+        ],
+        "line": 31,
+        "name": "Check max length validation for Realm Name",
+        "description": "",
+        "id": "testing-realm-rest-api;check-max-length-validation-for-realm-name",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 440990443,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "a user sends request with payload with max length name and description",
+            "match": {
+              "location": "TestSteps.a_user_sends_request_with_payload_with_max_length_name_and_description(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Name is A sample is a smaller manageable version of a larger group It is a subset containing the characteristics of a larger population",
+                  "description1"
+                ],
+                "line": 33
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 189210,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "the status code is \"400\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "400",
+                  "offset": 20
+                }
+              ],
+              "location": "TestSteps.the_status_code_is(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 912887,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "the response for request with max length RealmName is proper",
+            "match": {
+              "location": "TestSteps.the_response_for_request_with_max_length_RealmName_is_proper()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 30,
+            "name": "@POST"
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 37,
+            "value": "#If the requested realm description is longer than 255 chars."
+          }
+        ],
+        "line": 39,
+        "name": "Check Max length validation for Description",
+        "description": "",
+        "id": "testing-realm-rest-api;check-max-length-validation-for-description",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 401102307,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "a user sends request with payload with name and max length description",
+            "match": {
+              "location": "TestSteps.a_user_sends_request_with_payload_with_name_and_max_length_description(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name 1",
+                  "Description is A sample is a smaller manageable version of a larger group It is a subset containing the characteristics of a larger population Samples are used in statistical testing when population sizes are too large for the test to include all possible members or observations"
+                ],
+                "line": 41
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 377722,
+              "error_message": "java.lang.AssertionError: FAIL: Status code doesn\u0027t match.\nActual Response Code is \u003d\u003d\u003e 500\nExpected Response code is \u003d\u003d\u003e 400\nError is \u003d\u003d\u003e SystemError\nDescription is \u003d\u003d\u003e null\r\n\tat org.testng.Assert.fail(Assert.java:93)\r\n\tat step_definations.TestSteps.the_status_code_is(TestSteps.java:50)\r\n\tat ✽.Then the status code is \"400\"(src/test/resources/testRealmAPI.feature:42)\r\n",
+              "status": "failed"
+            },
+            "line": 42,
+            "name": "the status code is \"400\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "400",
+                  "offset": 20
+                }
+              ],
+              "location": "TestSteps.the_status_code_is(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 43,
+            "name": "the response for request with max description",
+            "match": {
+              "location": "TestSteps.the_response_for_request_with_max_description()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 38,
+            "name": "@POST"
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 45,
+            "value": "#update the name"
+          },
+          {
+            "line": 46,
+            "value": "#Get the Realm Id details"
+          }
+        ],
+        "line": 48,
+        "name": "Get Realm details",
+        "description": "",
+        "id": "testing-realm-rest-api;get-realm-details",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 455496458,
+              "error_message": "java.lang.AssertionError: FAIL: POST Response error.\nResponseCode is+\u003e400\nError is\u003d\u003eDuplicateRealmName\nDescription is+\u003eDuplicate realm name [getRealmID7].\r\n\tat org.testng.Assert.fail(Assert.java:93)\r\n\tat step_definations.TestSteps.a_user_sends_request_to_create_and_get_realm_details(TestSteps.java:197)\r\n\tat ✽.When a user sends request to create and get realm details(src/test/resources/testRealmAPI.feature:49)\r\n",
+              "status": "failed"
+            },
+            "line": 49,
+            "name": "a user sends request to create and get realm details",
+            "match": {
+              "location": "TestSteps.a_user_sends_request_to_create_and_get_realm_details(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "getRealmID7",
+                  "description21"
+                ],
+                "line": 50
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 51,
+            "name": "the status code for get is \"200\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 28
+                }
+              ],
+              "location": "TestSteps.the_status_code_for_get_is(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 52,
+            "name": "the response for get realm details should be proper",
+            "match": {
+              "location": "TestSteps.the_response_for_get_realm_details_should_be_proper()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 47,
+            "name": "@GET"
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 54,
+            "value": "#If the requested realm id is not an integer value or if it is an integer value larger than the allowed maximum (9999)"
+          }
+        ],
+        "line": 56,
+        "name": "Check max length integer value for id",
+        "description": "",
+        "id": "testing-realm-rest-api;check-max-length-integer-value-for-id",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 404056014,
+              "status": "passed"
+            },
+            "line": 57,
+            "name": "a user sends request to get realm details for",
+            "match": {
+              "location": "TestSteps.a_user_sends_request_to_get_realm_details_for(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "11000"
+                ],
+                "line": 58
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 375279,
+              "error_message": "java.lang.AssertionError: FAIL: Status code doesn\u0027t match.\nActual Response Code is \u003d\u003d\u003e 500\nExpected Response code is \u003d\u003d\u003e 400\nError is \u003d\u003d\u003e SystemError\nDescription is \u003d\u003d\u003e null\r\n\tat org.testng.Assert.fail(Assert.java:93)\r\n\tat step_definations.TestSteps.the_status_code_for_get_is(TestSteps.java:65)\r\n\tat ✽.Then the status code for get is \"400\"(src/test/resources/testRealmAPI.feature:59)\r\n",
+              "status": "failed"
+            },
+            "line": 59,
+            "name": "the status code for get is \"400\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "400",
+                  "offset": 28
+                }
+              ],
+              "location": "TestSteps.the_status_code_for_get_is(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 60,
+            "name": "the response for max legth realm id details should be proper",
+            "match": {
+              "location": "TestSteps.the_response_for_max_length_realm_id_details_should_be_proper()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 55,
+            "name": "@GET"
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 62,
+            "value": "#If the requested realm id does not identify an existing realm."
+          }
+        ],
+        "line": 64,
+        "name": "Check response for realm id which is not exist",
+        "description": "",
+        "id": "testing-realm-rest-api;check-response-for-realm-id-which-is-not-exist",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 441768579,
+              "status": "passed"
+            },
+            "line": 65,
+            "name": "a user sends request to get realm details for non exist realm",
+            "match": {
+              "location": "TestSteps.a_user_sends_request_to_get_realm_details_for_non_exist_realm(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "5000"
+                ],
+                "line": 66
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 349795,
+              "error_message": "java.lang.AssertionError: FAIL: Status code doesn\u0027t match.\nActual Response Code is \u003d\u003d\u003e 400\nExpected Response code is \u003d\u003d\u003e 404\nError is \u003d\u003d\u003e RealmNotFound\nDescription is \u003d\u003d\u003e Realm [5,000] not found.\r\n\tat org.testng.Assert.fail(Assert.java:93)\r\n\tat step_definations.TestSteps.the_status_code_for_get_is(TestSteps.java:65)\r\n\tat ✽.Then the status code for get is \"404\"(src/test/resources/testRealmAPI.feature:67)\r\n",
+              "status": "failed"
+            },
+            "line": 67,
+            "name": "the status code for get is \"404\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "404",
+                  "offset": 28
+                }
+              ],
+              "location": "TestSteps.the_status_code_for_get_is(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 68,
+            "name": "the response for get realm details for non existing should be proper",
+            "match": {
+              "location": "TestSteps.the_response_for_get_realm_details_for_non_existing_should_be_proper()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 63,
+            "name": "@GET"
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 70,
+            "value": "#update the name"
+          },
+          {
+            "line": 71,
+            "value": "#delete the existing realmId"
+          }
+        ],
+        "line": 73,
+        "name": "Check delete response for realm ID",
+        "description": "",
+        "id": "testing-realm-rest-api;check-delete-response-for-realm-id",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 768516786,
+              "status": "passed"
+            },
+            "line": 74,
+            "name": "a user create and delete realm",
+            "match": {
+              "location": "TestSteps.a_user_create_and_delete_realm(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "deleteRealm7",
+                  "delete realm details"
+                ],
+                "line": 75
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 394828,
+              "status": "passed"
+            },
+            "line": 76,
+            "name": "the status code for delete is \"204\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "204",
+                  "offset": 31
+                }
+              ],
+              "location": "TestSteps.the_status_code_for_delete_is(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 72,
+            "name": "@DELETE"
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 78,
+            "value": "#If the requested realm id is not an integer value"
+          }
+        ],
+        "line": 80,
+        "name": "Check delete response for realm ID for non-exist or not integer value",
+        "description": "",
+        "id": "testing-realm-rest-api;check-delete-response-for-realm-id-for-non-exist-or-not-integer-value",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 185958564,
+              "status": "passed"
+            },
+            "line": 81,
+            "name": "a user sends request to delete realm details for",
+            "match": {
+              "location": "TestSteps.a_user_sends_request_to_delete_realm_details_for(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "11000"
+                ],
+                "line": 82
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 346653,
+              "error_message": "java.lang.AssertionError: FAIL: Status code doesn\u0027t match.\nActual Response Code is \u003d\u003d\u003e 500\nExpected Response code is \u003d\u003d\u003e 400\nError is \u003d\u003d\u003e SystemError\nDescription is \u003d\u003d\u003e null\r\n\tat org.testng.Assert.fail(Assert.java:93)\r\n\tat step_definations.TestSteps.the_status_code_deletenotinteger_is(TestSteps.java:79)\r\n\tat ✽.Then the status code for deletenotinteger is \"400\"(src/test/resources/testRealmAPI.feature:83)\r\n",
+              "status": "failed"
+            },
+            "line": 83,
+            "name": "the status code for deletenotinteger is \"400\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "400",
+                  "offset": 41
+                }
+              ],
+              "location": "TestSteps.the_status_code_deletenotinteger_is(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 84,
+            "name": "the response for delete realm should be proper",
+            "match": {
+              "location": "TestSteps.the_response_for_delete_realm_should_be_proper()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 79,
+            "name": "@DELETE"
+          }
+        ]
+      }
+    ],
+    "name": "Testing Realm REST API",
+    "description": "Users should be able to submit GET and POST requests to a web service, \r\nrepresented by Realm",
+    "id": "testing-realm-rest-api",
+    "keyword": "Feature",
+    "uri": "src/test/resources/testRealmAPI.feature"
+  }
+]
